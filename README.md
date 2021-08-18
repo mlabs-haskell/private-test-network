@@ -47,15 +47,15 @@ Ctr-B and then press D
 
 * Start over at step 4 (in the TMUX shell).
 		
-9) Wait untill at least epoch 1 and run 1-toShelley:
+9) <b>Wait untill at least epoch 1</b> and run 1-toShelley:
 
-`./1-toShelley` 
+`./1-toShelley.sh` 
 
-10) Continue to check the tip and wait for era Shelley and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra 2` ): 
+10) Continue to check the tip and wait for era Shelley and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra.sh 2` ): 
 
-`./2-toAllegra (current epoch)` 
+`./2-toAllegra.sh (current epoch)` 
 
-* If you get an error durring any of the updates use the next epoch as the variables (ex if `./2-toAllegra 2` gives you an error, try `./2-toAllegra 3`) 
+* If you get an error durring any of the updates use the next epoch as the variables (ex if `./2-toAllegra.sh 2` gives you an error, try `./2-toAllegra.sh 3`) 
 		
 11) restart the nodes by going back in to the tmux shell:
 
@@ -69,15 +69,15 @@ Ctr-B and then press D
 
 14) get out of the tmux shell with Ctr-B and press D.
 
-15)  query the tip and wait untill it changes to Allegra and the run './3-toMary` with the current epoch:
+15)  query the tip and wait untill it changes to Allegra and the run './3-toMary.sh` with the current epoch:
 
-`./3-toMary (current epoch)`
+`./3-toMary.sh (current epoch)`
 
 16) repeate the process to restart the nodes (steps 11 - 14) 
 
-17) query the tip and wait untill it changes to Mary and then run `./4-toAlonzo` with the current epoch:
+17) query the tip and wait untill it changes to Mary and then run `./4-toAlonzo.sh` with the current epoch:
 
-`./4-toAlonzo (current epoch)`
+`./4-toAlonzo.sh (current epoch)`
 
 18) repeate the process to restart the nodes (steps 11 - 14) 
 
