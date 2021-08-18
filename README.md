@@ -51,7 +51,7 @@ Ctr-B and then press D
 
 `./1-toShelley.sh` 
 
-10) Continue to check the tip and wait for era Shelley and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra.sh 2` ): 
+10) Continue to check the tip and wait for era <b>Shelley</b> and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra.sh 2` ): 
 
 `./2-toAllegra.sh (current epoch)` 
 
@@ -69,20 +69,20 @@ Ctr-B and then press D
 
 14) get out of the tmux shell with Ctr-B and press D.
 
-15)  query the tip and wait untill it changes to Allegra and the run './3-toMary.sh` with the current epoch:
+15)  query the tip and wait untill it changes to <b>Allegra</b> and the run './3-toMary.sh` with the current epoch:
 
 `./3-toMary.sh (current epoch)`
 
 16) repeate the process to restart the nodes (steps 11 - 14) 
 
-17) query the tip and wait untill it changes to Mary and then run `./4-toAlonzo.sh` with the current epoch:
+17) query the tip and wait untill it changes to <b>Mary</b> and then run `./4-toAlonzo.sh` with the current epoch:
 
 `./4-toAlonzo.sh (current epoch)`
 
 18) repeate the process to restart the nodes (steps 11 - 14) 
 
-19) Query the tip until you are in Alonzo. 
+19) Query the tip until you are in <b>Alonzo</b>. 
 
-You now have a working private alonzo chain.
+You now have a working private <b>Alonzo chain</b>.
 
 
