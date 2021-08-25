@@ -67,6 +67,7 @@ ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 ENV NODE_HOME=$HOME/cardano-my-node
 ENV NODE_CONFIG=alonzo-purple
 ENV NODE_BUILD_NUM=7189190
+ENV CARDANO_NODE_COMMIT=a0415729decefe8ea4426faf204798b1d90dbaf8
 # RUN source /root/.bashrc
 
 # update cabal
@@ -79,7 +80,7 @@ WORKDIR $HOME/git
 RUN git clone https://github.com/input-output-hk/cardano-node.git
 WORKDIR $HOME/git/cardano-node
 RUN git fetch --all --recurse-submodules --tags
-RUN git checkout 708de685d49ec6af4b2d8b3cbfa0eca0e9e43edf
+RUN git checkout $CARDANO_NODE_COMMIT
 
 RUN cabal configure -O0 -w ghc-8.10.4
 
@@ -97,13 +98,13 @@ RUN cp $(find $HOME/git/cardano-node/dist-newstyle/build -type f -name "cardano-
 
 RUN mkdir $NODE_HOME
 WORKDIR $NODE_HOME
-RUN wget -O start.sh https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/scripts/mkfiles.sh?token=AKHJSNUS5TBMX72PXLAMCCTBEUCBS
-RUN wget -O 1-toShelley.sh https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/scripts/update-1.sh?token=AKHJSNS3GKV5VSCLX5BXNCDBEUCR2
-RUN wget -O 2-toAllegra.sh https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/scripts/update-3.sh?token=AKHJSNRZL5OGFXFSCSA4IK3BEUCXI
-RUN wget -O 3-toMary.sh https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/scripts/update-4.sh?token=AKHJSNQICTF7TDW7GO6IFIDBEUC2O
-RUN wget -O 4-toAlonzo.sh https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/scripts/update-5.sh?token=AKHJSNTQEPOWECL5RZ3K42DBEUC5C
-RUN wget -O configuration.yaml https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/config/configuration.yaml?token=AKHJSNW4SVMQOL4CCFEZX2LBEUC72
-RUN wget -O genesis.alonzo.json https://raw.githubusercontent.com/mlabs-haskell/private-test-network/master/config/genesis.alonzo.json?token=AKHJSNWFCZSG6W7NEF26XXLBEUDCO
+COPY scripts/mkfiles.sh start.sh
+COPY scripts/update-1.sh 1-toShelley.sh
+COPY scripts/update-3.sh 2-toAllegra.sh
+COPY scripts/update-4.sh 3-toMary.sh
+COPY scripts/update-5.sh 4-toAlonzo.sh
+COPY config/configuration.yaml configuration.yaml
+COPY config/genesis.alonzo.json genesis.alonzo.json
 
 RUN chmod +x 1-toShelley.sh 2-toAllegra.sh 3-toMary.sh 4-toAlonzo.sh start.sh
 

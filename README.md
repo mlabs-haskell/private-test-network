@@ -1,88 +1,84 @@
-** <b>This is a work in proccess - the directions below are not official or a finished product. They are just for people that want to play around with the project as it's worked on:</b>
+\*\* <b>This is a work in proccess - the directions below are not official or a finished product. They are just for people that want to play around with the project as it's worked on:</b>
 
+1. build the docker image
 
-1) get the docker image
+`docker build . -t mlabs-private-testnet`
 
-`docker run stackchain/private-network:0.1`
+2. get into the image:
 
-2) get into the image:
+`docker run --rm --interactive --tty mlabs-private-testnet`
 
-`docker run --rm --interactive --tty stackchain/private-network:0.1`
-
-3) open a tmux shell:
+3. open a tmux shell:
 
 `tmux`
 
-4) configure the network:
+4. configure the network:
 
 `./start.sh`
 
-5) go to the run directory:
+5. go to the run directory:
 
 `cd example/run`
 
-6) start the 3 nodes:
+6. start the 3 nodes:
 
 `./all.sh`
 
-7) get out of the tmux shell:
+7. get out of the tmux shell:
 
-Ctr-B and then press D 
+Ctr-B and then press D
 
-8) query the tip a few times and make sure everything is running and blocks are being made:
+8. query the tip a few times and make sure everything is running and blocks are being made:
 
 `cardano-cli query tip --testnet-magic 42`
 
-* If block production staopped or never started, go back into the tmux shell:
-		
-		`tmux attach` and press Ctr-C twice 
+- If block production stopped or never started, go back into the tmux shell:
+  `tmux attach` and press Ctr-C twice
 
-* Then go back to the main folder:
+- Then go back to the main folder:
 
-		`cd $NODE_HOME
+      `cd $NODE_HOME
 
-* Erase the example folder:
+- Erase the example folder:
 
-		`rm -r -f example/`
+      `rm -r -f example/`
 
-* Start over at step 4 (in the TMUX shell).
-		
-9) <b>Wait untill at least epoch 1</b> and run 1-toShelley:
+- Start over at step 4 (in the TMUX shell).
 
-`./1-toShelley.sh` 
+9. <b>Wait untill at least epoch 1</b> and run 1-toShelley:
 
-10) Continue to check the tip and wait for era <b>Shelley</b> and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra.sh 2` ): 
+`./1-toShelley.sh`
 
-`./2-toAllegra.sh (current epoch)` 
+10. Continue to check the tip and wait for era <b>Shelley</b> (this might take some time, be patient) and then run 2-toAllegra with the current epoch as a variable (ex `./2-toAllegra.sh 2` ):
 
-* If you get an error durring any of the updates use the next epoch as the variables (ex if `./2-toAllegra.sh 2` gives you an error, try `./2-toAllegra.sh 3`) 
-		
-11) restart the nodes by going back in to the tmux shell:
+`./2-toAllegra.sh (current epoch)`
+
+- If you get an error durring any of the updates use the next epoch as the variables (ex if `./2-toAllegra.sh 2` gives you an error, try `./2-toAllegra.sh 3`)
+
+11. restart the nodes by going back in to the tmux shell:
 
 `tmux attach`
 
-12) press Ctr-C twice to stop the nodes.
+12. press Ctr-C twice to stop the nodes.
 
-13) restart all the nodes:
+13. restart all the nodes:
 
 `./all.sh`
 
-14) get out of the tmux shell with Ctr-B and press D.
+14. get out of the tmux shell with Ctr-B and press D.
 
-15)  query the tip and wait untill it changes to <b>Allegra</b> and the run './3-toMary.sh` with the current epoch:
+15. query the tip and wait untill it changes to <b>Allegra</b> and the run './3-toMary.sh` with the current epoch:
 
 `./3-toMary.sh (current epoch)`
 
-16) repeate the process to restart the nodes (steps 11 - 14) 
+16. repeate the process to restart the nodes (steps 11 - 14)
 
-17) query the tip and wait untill it changes to <b>Mary</b> and then run `./4-toAlonzo.sh` with the current epoch:
+17. query the tip and wait untill it changes to <b>Mary</b> and then run `./4-toAlonzo.sh` with the current epoch:
 
 `./4-toAlonzo.sh (current epoch)`
 
-18) repeate the process to restart the nodes (steps 11 - 14) 
+18. repeate the process to restart the nodes (steps 11 - 14)
 
-19) Query the tip until you are in <b>Alonzo</b>. 
+19. Query the tip until you are in <b>Alonzo</b>.
 
 You now have a working private <b>Alonzo chain</b>.
-
-
