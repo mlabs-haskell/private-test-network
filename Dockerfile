@@ -67,6 +67,7 @@ ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 ENV NODE_HOME=$HOME/cardano-my-node
 ENV NODE_CONFIG=alonzo-purple
 ENV NODE_BUILD_NUM=7189190
+ENV CARDANO_NODE_COMMIT=a0415729decefe8ea4426faf204798b1d90dbaf8
 # RUN source /root/.bashrc
 
 # update cabal
@@ -79,7 +80,7 @@ WORKDIR $HOME/git
 RUN git clone https://github.com/input-output-hk/cardano-node.git
 WORKDIR $HOME/git/cardano-node
 RUN git fetch --all --recurse-submodules --tags
-RUN git checkout 708de685d49ec6af4b2d8b3cbfa0eca0e9e43edf
+RUN git checkout $CARDANO_NODE_COMMIT
 
 RUN cabal configure -O0 -w ghc-8.10.4
 
