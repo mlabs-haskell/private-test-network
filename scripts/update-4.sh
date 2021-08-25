@@ -20,7 +20,7 @@ EPOCH=$1
 VERSION=4
 
 ROOT=example
-COINS_IN_INPUT1=500000008998866
+COINS_IN_INPUT1=500000008998865
 COINS_IN_INPUT2=500000008998864
 pushd ${ROOT}
 
@@ -43,7 +43,7 @@ cardano-cli governance create-update-proposal \
 
 cardano-cli transaction build-raw \
             --allegra-era \
-            --fee 602 \
+            --fee 603 \
             --tx-in $TXID2#0\
             --tx-in $TXID2#1\
             --tx-out $(cat addresses/user1.addr)+$((${COINS_IN_INPUT1})) \

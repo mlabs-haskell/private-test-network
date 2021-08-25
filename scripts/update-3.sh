@@ -64,7 +64,7 @@ echo "first done"
 
 cardano-cli transaction build-raw \
             --shelley-era \
-            --invalid-hereafter 100000 \
+            --invalid-hereafter 1000000 \
             --fee 1668 \
             --tx-in ${TXID0}#0\
             --tx-in ${TXID1}#0\
