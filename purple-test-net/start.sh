@@ -4,7 +4,7 @@ CONFIG=https://hydra.iohk.io/build/7366583/download/1/alonzo-purple-config.json
 BYRON_GENESIS=https://hydra.iohk.io/build/7366583/download/1/alonzo-purple-byron-genesis.json
 SHELLEY_GENESIS=https://hydra.iohk.io/build/7366583/download/1/alonzo-purple-shelley-genesis.json
 ALONZO_GENESIS=https://hydra.iohk.io/build/7366583/download/1/alonzo-purple-alonzo-genesis.json
-TOPOLOGY=https://hydra.iohk.io/build/7189190/download/1/alonzo-purple-topology.json
+TOPOLOGY=https://hydra.iohk.io/build/7366583/download/1/alonzo-purple-topology.json
 
 ##Making some folders
 mkdir -p ./configuration/config/
