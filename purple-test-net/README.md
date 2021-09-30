@@ -5,7 +5,7 @@ This approach uses scripts from
 
 * Start local node
   * Pick desired (probably, last avaliable) release tag from [IOHK DockerHub](https://hub.docker.com/r/inputoutput/cardano-node/tags)
-  * Run `start.sh` providing tag as parameter, e.g:
+  * Run `start.sh` providing tag as parameter, e.g: 
 
       ```
       start.sh 1.30.0-rc4
