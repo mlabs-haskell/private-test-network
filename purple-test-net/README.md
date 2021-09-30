@@ -13,7 +13,7 @@ This approach uses scripts from
 
       This will create needed directories, start node and share node socket to host machine to `./configuration/sockets` directory
 * Get node cli **compatible** with current node version by either
-  * Downloading ready to go binaries, e.g. <https://hydra.iohk.io/build/7697554/download/1/cardano-node-1.30.0-linux.tar.gz> (links periodically published in IOHK Discord)
+  * Downloading ready to go binaries, e.g. <https://hydra.iohk.io/build/7739415/download/1/cardano-node-1.30.1-linux.tar.gz> (links periodically published in IOHK Discord)
   * Building one yourself:
     * clone [cardano-node repo](https://github.com/input-output-hk/cardano-node)
     * checkout to desired commit
